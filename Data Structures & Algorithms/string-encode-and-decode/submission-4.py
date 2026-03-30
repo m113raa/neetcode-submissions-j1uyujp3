@@ -1,0 +1,23 @@
+class Solution:
+
+    def encode(self, strs: List[str]) -> str:
+        lili = ""
+        for s in strs:
+            lili += str(len(s)) + "#" + s
+        return lili
+
+    def decode(self, s: str) -> List[str]:
+        lili = []
+        i = 0
+        while i < len(s):
+            j = i 
+            while s[j] != "#":
+                j += 1
+            length = int(s[i:j])
+            i = j + 1
+            j = i + length
+            lili.append(s[i:j])
+            i = j
+
+        return lili
+
